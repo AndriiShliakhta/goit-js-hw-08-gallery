@@ -84,9 +84,11 @@ galleryItems.map((item)=>{
 })
 
 jsGallery.addEventListener('click', e => {
- const img = e.target.querySelector('.gallery__image');
- lightBox.classList.add('is-open');
- lightBoxImage.src = img.dataset.source;
+  if (e.target.nodeName === 'UL') return;
+  
+  const img = e.target.querySelector('.gallery__image');
+  lightBox.classList.add('is-open');
+  lightBoxImage.src = img.dataset.source;
 })
 
 const onCloseModal = function(){
